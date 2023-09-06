@@ -17,7 +17,7 @@ module Mastodon
     end
 
     def default_prerelease
-      'beta2'
+      'beta3'
     end
 
     def prerelease
@@ -25,7 +25,7 @@ module Mastodon
     end
 
     def build_metadata
-      ENV.fetch('MASTODON_VERSION_METADATA', nil)
+      ['glitch', ENV.fetch('MASTODON_VERSION_METADATA', nil)].compact.join('.')
     end
 
     def to_a
@@ -39,8 +39,12 @@ module Mastodon
       components.join
     end
 
+    def gem_version
+      @gem_version ||= Gem::Version.new(to_s.split('+')[0])
+    end
+
     def repository
-      ENV.fetch('GITHUB_REPOSITORY', 'mastodon/mastodon')
+      ENV.fetch('GITHUB_REPOSITORY', 'glitch-soc/mastodon')
     end
 
     def source_base_url

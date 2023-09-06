@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_18_142253) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_134623) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -903,6 +903,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_142253) do
     t.index ["var"], name: "index_site_uploads_on_var", unique: true
   end
 
+  create_table "software_updates", force: :cascade do |t|
+    t.string "version", null: false
+    t.boolean "urgent", default: false, null: false
+    t.integer "type", default: 0, null: false
+    t.string "release_notes", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["version"], name: "index_software_updates_on_version", unique: true
+  end
+
   create_table "status_edits", force: :cascade do |t|
     t.bigint "status_id", null: false
     t.bigint "account_id"
@@ -910,6 +920,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_142253) do
     t.text "spoiler_text", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "content_type"
     t.bigint "ordered_media_attachment_ids", array: true
     t.text "media_descriptions", array: true
     t.string "poll_options", array: true
@@ -966,7 +977,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_142253) do
     t.bigint "account_id", null: false
     t.bigint "application_id"
     t.bigint "in_reply_to_account_id"
+    t.boolean "local_only"
     t.bigint "poll_id"
+    t.string "content_type"
     t.datetime "deleted_at", precision: nil
     t.datetime "edited_at", precision: nil
     t.boolean "trendable"
