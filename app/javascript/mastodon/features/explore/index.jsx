@@ -77,7 +77,7 @@ class Explore extends PureComponent {
                   <FormattedMessage tagName='div' id='explore.trending_statuses' defaultMessage='Posts' />
                 </NavLink>
 
-                <NavLink exact to='/explore/tags'>
+                {/* <NavLink exact to='/explore/tags'>
                   <FormattedMessage tagName='div' id='explore.trending_tags' defaultMessage='Hashtags' />
                 </NavLink>
 
@@ -89,13 +89,13 @@ class Explore extends PureComponent {
 
                 <NavLink exact to='/explore/links'>
                   <FormattedMessage tagName='div' id='explore.trending_links' defaultMessage='News' />
-                </NavLink>
+                </NavLink> */}
               </div>
 
               <Switch>
-                <Route path='/explore/tags' component={Tags} />
-                <Route path='/explore/links' component={Links} />
-                <Route path='/explore/suggestions' component={Suggestions} />
+                {/* <Route path='/explore/tags' component={Tags} /> */}
+                {/* <Route path='/explore/links' component={Links} /> */}
+                {/* <Route path='/explore/suggestions' component={Suggestions} /> */}
                 <Route exact path={['/explore', '/explore/posts', '/search']}>
                   <Statuses multiColumn={multiColumn} />
                 </Route>
