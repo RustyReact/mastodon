@@ -8,5 +8,5 @@ export const WordmarkLogo: React.FC = () => (
 );
 
 export const SymbolLogo: React.FC = () => (
-  <img src={logo} alt='Mastodon' className='logo logo--icon' />
+  <img src={logo} alt='TomX' className='logo logo--icon' />
 );
