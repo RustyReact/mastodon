@@ -83,7 +83,8 @@ class Results extends PureComponent {
     if (!isLoading) {
       switch(type) {
       case 'all':
-        filteredResults = filteredResults.concat(renderAccounts(results, this.handleLoadMoreAccounts), renderHashtags(results, this.handleLoadMoreHashtags), renderStatuses(results, this.handleLoadMoreStatuses));
+        filteredResults = filteredResults.concat(renderStatuses(results, this.handleLoadMoreStatuses));
+        // filteredResults = filteredResults.concat(renderAccounts(results, this.handleLoadMoreAccounts), renderHashtags(results, this.handleLoadMoreHashtags), renderStatuses(results, this.handleLoadMoreStatuses));
         break;
       case 'accounts':
         filteredResults = filteredResults.concat(renderAccounts(results, this.handleLoadMoreAccounts));
@@ -107,12 +108,12 @@ class Results extends PureComponent {
 
     return (
       <>
-        <div className='account__section-headline'>
+        {/* <div className='account__section-headline'>
           <button onClick={this.handleSelectAll} className={type === 'all' && 'active'}><FormattedMessage id='search_results.all' defaultMessage='All' /></button>
           <button onClick={this.handleSelectAccounts} className={type === 'accounts' && 'active'}><FormattedMessage id='search_results.accounts' defaultMessage='Profiles' /></button>
           <button onClick={this.handleSelectHashtags} className={type === 'hashtags' && 'active'}><FormattedMessage id='search_results.hashtags' defaultMessage='Hashtags' /></button>
           <button onClick={this.handleSelectStatuses} className={type === 'statuses' && 'active'}><FormattedMessage id='search_results.statuses' defaultMessage='Posts' /></button>
-        </div>
+        </div> */}
 
         <div className='explore__search-results'>
           {isLoading ? <LoadingIndicator /> : filteredResults}

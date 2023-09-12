@@ -56,7 +56,7 @@ class Statuses extends PureComponent {
         <DismissableBanner id='explore/statuses'>
           <FormattedMessage id='dismissable_banner.explore_statuses' defaultMessage='These are posts from across the social web that are gaining traction today. Newer posts with more boosts and favorites are ranked higher.' />
         </DismissableBanner>
-
+        {/* Custom Code */}
         {/* <div className='scrollable scrollable--flex'> */}
           <StatusListContainer
           //   prepend={prependBanner}

@@ -73,6 +73,7 @@ class Explore extends PureComponent {
           ) : (
             <>
               <div className='account__section-headline'>
+                  {/* Custom code */}
                 {/* <NavLink exact to='/explore'>
                   <FormattedMessage tagName='div' id='explore.trending_statuses' defaultMessage='Posts' />
                 </NavLink> */}
